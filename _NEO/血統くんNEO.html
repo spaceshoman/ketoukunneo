@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>血統くんNEO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: #0B0F1A; color: #fff;
+    font-family: 'Noto Sans JP', 'Inter', -apple-system, system-ui, sans-serif;
+    height: 100%; overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  #root { height: 100%; display: flex; align-items: center; justify-content: center; }
+  .stage {
+    display: flex; align-items: center; justify-content: center;
+    min-height: 100vh; width: 100vw; gap: 28px; padding: 28px;
+    box-sizing: border-box;
+  }
+  .phone-slot { position: relative; }
+  .phone-label {
+    position: absolute; top: -22px; left: 0; right: 0; text-align: center;
+    font-size: 10px; font-weight: 700; letter-spacing: 2px;
+    color: rgba(255,255,255,0.5);
+  }
+  /* scrollbar hide */
+  *::-webkit-scrollbar { width: 0; height: 0; }
+  * { scrollbar-width: none; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="data.jsx"></script>
+<script type="text/babel" src="components/icons.jsx"></script>
+<script type="text/babel" src="components/ui-primitives.jsx"></script>
+<script type="text/babel" src="components/ios-frame.jsx"></script>
+<script type="text/babel" src="components/screens.jsx"></script>
+<script type="text/babel" src="components/race-screen.jsx"></script>
+<script type="text/babel" src="components/horse-detail.jsx"></script>
+<script type="text/babel" src="components/bet-screen.jsx"></script>
+<script type="text/babel" src="components/app.jsx"></script>
+
+<script type="text/babel">
+  function Mount() {
+    return (
+      <div className="stage">
+        <div className="phone-slot">
+          <IOSDevice dark={true} width={390} height={800}>
+            <App/>
+          </IOSDevice>
+        </div>
+      </div>
+    );
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Mount/>);
+</script>
+</body>
+</html>
